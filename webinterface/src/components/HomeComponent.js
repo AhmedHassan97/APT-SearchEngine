@@ -20,6 +20,7 @@ class Home extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(values) {
+      this.props.postFeedback(values.searchQuery);
     }
 render(){
     return(

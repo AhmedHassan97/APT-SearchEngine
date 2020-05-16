@@ -4,20 +4,13 @@ import { baseUrl } from '../shared/baseUrl';
 
 
 /////////////////////////////////////////////Send a feedback
-export const postFeedback = (firstname, lastname, email, telnum,agree,contactType,message) => (dispatch) => {
+export const postFeedback = (query) => (dispatch) => {
 
     const newFeedback = {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        telnum: telnum,
-        agree: agree,
-        contactType:contactType,
-        message:message
+        query:query
     };
-    newFeedback.date = new Date().toISOString();
     
-    return fetch(baseUrl + 'feedback', {
+    return fetch("http://localhost:8080/api/v1/person", {
         method: "POST",
         body: JSON.stringify(newFeedback),
         headers: {
